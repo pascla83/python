@@ -191,4 +191,4 @@ class ArticoliView(ListView):
 
 ```
 
-Progetto [https://github.com/pascla83/python/progettopa](https://github.com/pascla83/python/progettopa).
+Progetto [https://github.com/pascla83/python/tree/master/progettopa](https://github.com/pascla83/python/tree/master/progettopa).
