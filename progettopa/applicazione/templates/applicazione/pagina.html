@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block menu %}
+<!-- Di solito nell'HREF dell'URL -->
+<!-- url: {% url 'homepage' %} -->
+<li class="dropdown active">
+    <a href="" class="nav-link"><i data-feather="monitor"></i><span>Articoli</span></a>
+  </li>
+
+  <li class="dropdown">
+    <a href="" class="nav-link"><i data-feather="monitor"></i><span>Clienti</span></a>
+  </li>
+
+  <li class="dropdown">
+    <a href="" class="nav-link"><i data-feather="monitor"></i><span>Vendite</span></a>
+  </li>
+
+{% endblock menu %}
+
+
+{% block cardina_x %}
+
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="card">
+      <div class="card-statistic-4">
+        <div class="align-items-center justify-content-between">
+          <div class="row ">
+            <div class="col-12 pr-0 pt-3">
+              <div class="card-content">
+                <h5 class="font-15">Sales Order Fill Rate</h5>
+                <h2 class="mb-3 font-18">valore x %</h2>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock cardina_x %}
+
+{% block cardina_x2 %}
+
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="card">
+      <div class="card-statistic-4">
+        <div class="align-items-center justify-content-between">
+          <div class="row ">
+            <div class="col-12 pr-0 pt-3">
+              <div class="card-content">
+                <h5 class="font-15"> Discount Efficiency</h5>
+                <h2 class="mb-3 font-18">valore x2 %</h2>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock cardina_x2 %}
+
+{% block cardina_x3 %}
+
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="card">
+      <div class="card-statistic-4">
+        <div class="align-items-center justify-content-between">
+          <div class="row ">
+            <div class="col-12 pr-0 pt-3">
+              <div class="card-content">
+                <h5 class="font-15">Days Sales Outstanding</h5>
+                <h2 class="mb-3 font-18">valore x3 giorni</h2>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock cardina_x3 %}
+
+{% block cardina_x4 %}
+
+<div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+    <div class="card">
+      <div class="card-statistic-4">
+        <div class="align-items-center justify-content-between">
+          <div class="row ">
+            <div class="col-12 pr-0 pt-3">
+              <div class="card-content">
+                <h5 class="font-15">Win Rate of Product Sales</h5>
+                <h2 class="mb-3 font-18">valore x4 giorni %</h2>
+                
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% endblock cardina_x4 %}
+
+
+  {% block tabella_x %}
+
+  <!-- Start Tabella -->
+
+  <div class="col-md-6 col-lg-12 col-xl-12">
+    <div class="card">
+      <div class="card-header">
+        <h4>Tabella Articoli</h4>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th>Titolo</th>
+                <th>Tab</th>
+                <th>Giacenza</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for dati in articoli %}
+              <tr>
+                <td> {{ dati.titolo }} </td>
+                <td> {{ dati.tag }}</td>
+                <td> {{ dati.giacenza }} </td>
+              </tr>
+            {% endfor %} 
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end">
+        {% include "paginations.html" %}
+      </div>
+    </div>
+  </div>
+
+
+  <!-- End Tabella -->
+
+  {% endblock tabella_x %}

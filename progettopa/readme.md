@@ -88,7 +88,7 @@ Dopo aver creato il progetto:
 
 ```bash
 
-django-admin startproject primo_progetto
+django-admin startproject progettopa
 
 ```
 
@@ -96,9 +96,9 @@ django-admin startproject primo_progetto
 
 ```bash
 
-cd primo_progetto
+cd progettopa
 
-python manage.py startapp prima_app
+python manage.py startapp applicazione
 
 ```
 
@@ -106,7 +106,7 @@ e inoltre è anche bene, configurarla:
 
 ```bash
 
-primo_progetto -> primo_progetto -> settings.py
+progettopa -> progettopa -> settings.py
 
 ```
 
@@ -122,7 +122,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'prima_app'
+    'applicazione'
 ]
 
 ```
@@ -131,20 +131,64 @@ e ora? è bene accedere ad urls.py
 
 ```bash
 
-primo_progetto -> primo_progetto -> urls.py
+progettopa -> progettopa -> urls.py
 
 ```
 
-accediamo e modifichiamo. La struttura appare in questo modo e va modificata
+é bene aggiungere "applicazione" o la webapp che vorremmo creare:
+
+python manage.py startapp applicazione ( l'abbiamo creata da poco)
+
 
 ```bash
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # ho aggiunto la mia applicazione
+    path("", include("applicazione.urls"))
 ]
 
 ```
 
+Ora è bene creare anche la urls.py all'interno dell'applicazione
+
+```bash
+
+progettopa -> applicazione -> urls.py
+
+```
+
+quindi?
+
+```bash
+
+from django.urls import path
+
+from .views import ArticoliView
+
+urlpatterns = [
+    path("", ArticoliView.as_view(), name="homepage")
+]
+
+```
+
+ArticoliView, che cos'è?
+
+```bash
+
+from django.shortcuts import render
+from .models import Articolo
+from django.views.generic import ListView, DetailView
+
+class ArticoliView(ListView):
+    model = Articolo
+    template_name = "applicazione/pagina.html"
+    context_object_name = 'articoli'
+    paginate_by = 25
+
+```
+
+Progetto [https://github.com/pascla83/python/progettopa](https://github.com/pascla83/python/progettopa).
