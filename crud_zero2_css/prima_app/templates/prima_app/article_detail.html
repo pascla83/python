@@ -1,0 +1,15 @@
+<!-- templates/prima_app/article_detail.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ article.title }}</title>
+</head>
+<body>
+    <h1>{{ article.title }}</h1>
+    <p>{{ article.content }}</p>
+    <a href="{% url 'article_update' article.id %}">Edit</a>
+    <a href="{% url 'article_delete' article.id %}">Delete</a>
+    <br>
+    <a href="{% url 'article_list' %}">Back to Articles List</a>
+</body>
+</html>
