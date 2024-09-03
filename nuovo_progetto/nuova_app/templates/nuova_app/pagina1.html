@@ -1,0 +1,352 @@
+{% extends 'base1.html' %}
+{% load static %}
+
+<!-- Gestione Imprese -->
+
+{% block lista %}
+
+    <div class="card">
+        <div class="card-header">
+            <h4>Gestione Bilanci</h4>
+        </div>
+
+        <div class="card-body">
+          <!--
+           Gestione Ramo per tornare indietro 
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="">Home</a></li>
+                    <li class="breadcrumb-item"><a href="">Gestione
+                        imprese</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Titolo</li>
+                </ol>
+            </nav>
+             fine Gestione Ramo per tornare indietro -->
+
+            <div class="row ml-3 mr-3">
+              
+                <div class="col-12">
+                    <form method="POST" class="post-form">
+                    {% csrf_token %}
+
+                    <!-- 
+                    
+                    <div class="section-title">Gestione Bilanci</div>
+
+                    -->
+                    <!-- forms.py -->
+                    <!-- ho inserito l'ID all'interno del forms.py per Codice Fiscale e Partita Iva -->
+                    <!-- ricavo l'ID -->
+                    
+                    <div class="form-row d-flex">
+                      
+                        <div class="form-group col-md-2">
+
+                            <!--
+                          
+                            <label for="{{ form.partita_iva.auto_id }}">{{ form.partita_iva.label }}</label>
+                            {{ form.partita_iva }}
+
+                            -->
+
+                        </div>
+
+                        <!-- Campo testuale Bilancio -->
+
+                        <!--
+                        <div class="form-group col-md-4">
+                            <label for="{{ form.bilancio.auto_id }}">{{ form.bilancio.label }}</label>
+                            {{ form.bilancio }}
+                        </div>
+
+                        -->
+
+                        <div class="form-group col-md-4 mt-4 align-self-center">
+                            <!-- Verifica -->
+                            <!-- <button onclick="fun()" class="btn btn-primary mr-1" type="button"><i class="fas fa-check"></i> Verifica</button> -->
+                            <!-- fine verifica -->
+
+                            
+
+                        </div>
+
+                    </div>
+
+                    <!-- Qui ho inserito una campo testuale per l'inserimento -->
+
+                    <!-- E' stato solo per organizzarmi il progetto -->
+                    
+                      <div class="form-row">
+
+                        <!--
+                              <div class="form-group col-md-4">
+                                <label for="{{ form.bilancio.auto_id }}">{{ form.bilancio.label }}</label>
+                                {{ form.bilancio }}
+                            </div>
+                        -->
+
+                    </div>
+
+                    <!-- Qui ci sono i Dati a forma di paragrafo o Label -->
+
+                    <!-- Tali dati ci proietteranno le informazioni -->
+
+
+                    <div class="form-row">
+
+                        
+
+                  </div>
+
+                    <div class="form-row">
+
+                          
+
+                    </div>
+
+                  <!-- Tali dati ci proietteranno le informazioni -->
+
+                  <div class="form-row">
+
+                        
+                    
+                  </div>
+
+                <div class="form-row">
+
+                    
+                
+                </div>
+
+
+                <div class="form-row">
+
+                  
+              
+              </div>
+
+              <div class="form-row">
+
+                  
+              
+              </div>
+
+              <div class="form-row">
+
+                  
+              
+              </div>
+
+              <div class="form-row">
+
+                  
+                  
+              
+              </div>
+
+              <div class="form-row">
+
+                  
+              
+              </div>
+
+              <!-- info aggiuntive -->
+
+
+              <!-- Punteggio -->
+
+              <div class="form-row">
+
+                
+            
+            </div>
+
+            <!-- fine Punteggio -->
+
+            <!-- copertura delle immobilizzazioni -->
+
+
+              <div class="form-row">
+
+                
+            
+            </div>
+
+            <!-- fine copertura delle immobilizzazioni -->
+
+            <!-- indipendenza finanziaria -->
+
+            <div class="form-row">
+
+                
+            
+            </div>
+
+            <!-- fine indipendenza finanziaria -->
+
+            <!-- incidenza finanziaria -->
+
+            <div class="form-row">
+
+                
+            
+            </div>
+
+            <!-- fine incidenza finanziaria -->
+
+            <!-- Incidenza gestione caratteristica sul fatturato -->
+
+            <div class="form-row">
+
+                
+            
+            </div>
+
+            <!-- fine Incidenza gestione caratteristica sul fatturato -->
+
+            <!-- La somma dei valori -->
+            <div class="form-row">
+
+                
+            
+            </div>
+                    
+                    
+
+                <hr>
+
+                <!-- Ho tolto il salvataggio anche perchè é con SqlLite3 -->
+                <!-- 3 Marzo 2023 -->
+
+                <!--
+                
+                    <div class="card-footer text-right">
+                        <button class="btn btn-primary mr-1" type="submit"><i class="far fa-save"></i> Salva</button>
+                    </div>
+
+                    -->
+
+                    
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://jsuites.net/v4/jsuites.js"></script>
+    <link rel="stylesheet" href="https://jsuites.net/v4/jsuites.css" type="text/css" />
+
+
+    <script>
+
+    // Quando carichiamo la pagina è bene che Gestione Imprese, azzeri tutti i campi
+
+    $(document).ready(function() {
+       // resetCampi();
+       //$('#id_cda_0').attr("checked", "checked")
+        /*
+        if (document.getElementById("id_cda_0").checked )
+        {
+            console.log("CHECK QUI");
+        }
+        else{
+            console.log("CHECK QUI 1");
+        }
+        */
+    });
+
+
+    /* $(document.body).on('change',"#id_partita_iva",function (e) {
+    //doStuff
+        if (document.getElementById('id_partita_iva').innerHTML.length < 11)
+        {
+            console.log ("KKK");
+        }
+        else{
+            console.log ("HHHHHH");
+        }
+    }); */
+
+    /*
+
+    $('#id_partita_iva').addEventListener('change', function (evt) {
+        if( $(this).length < 11){
+            console.log("minore");
+        }else{
+            console.log("maggiore");
+        }
+    });
+    */
+
+    /*
+    $(document).on('propertychange change click keyup input paste', '#id_partita_iva', function (e) {
+    // Do something here
+        if ($(this).length < 11){
+            console.log("minore");
+        }
+    });
+    */
+
+    /*
+    $(document.body).on('change',"#id_partita_iva",function (e) {
+    // Do whatever you need to do on actual change of the value of the input field
+        console.log ( );
+    });
+    */
+
+    
+    function disableBtn() {
+        document.getElementById("credit_send").disabled = true;
+    }
+
+
+    function activeBtn() {
+        document.getElementById("credit_send").disabled = false;
+    }
+
+
+
+    window.onload = function(e){ 
+        console.log("Appena Caricata la pagina");
+        //document.getElementById("credit_send").disabled;
+        disableBtn();
+    }
+
+    // Accetta SOLO numeri
+    function forceNumeric(){
+        var $input = $(this);
+        $input.val($input.val().replace(/[^\d]+/g,''));
+    }
+
+    // nel campo P. IVA accetta SOLO numeri
+    $('body').on('propertychange input', '#id_partita_iva', forceNumeric);
+
+    $(document.body).on('input',"#id_partita_iva",function (e) {
+        let text = document.getElementById("id_partita_iva").value;
+        console.log(text);
+        if (text.length == 0)
+        {
+            console.log ("Stringa Vuota");
+            disableBtn();
+        }
+        else if (text.length < 11 )
+        {
+            console.log ("Lunghezza non accettata");
+            disableBtn();
+        }
+        else if (text.length == 11)
+        {
+            console.log ("Lunghezza accettata");
+            activeBtn();
+        }
+        else{
+            console.log ("Lunghezza superata");
+            disableBtn();
+        }
+    });
+
+    </script>
+
+    
+{% endblock lista %}
